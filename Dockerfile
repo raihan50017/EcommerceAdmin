@@ -11,6 +11,7 @@ RUN npm i -g serve
 
 COPY . .
 
+ENV TSC_COMPILE_ON_ERROR true
 RUN npm run build
 
 EXPOSE 3000
