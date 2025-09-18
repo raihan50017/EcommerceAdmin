@@ -1,5 +1,4 @@
-import { GetAllProductVariant, ProductVariantType } from "@/actions/product-variant/product-variant-action";
-import useAxiosInstance from "@/lib/axios-instance";
+import {ProductVariantType } from "@/actions/product-variant/product-variant-action";
 import { PageAction } from "@/utility/page-actions";
 import { Edit2 } from "lucide-react";
 import React from "react";
@@ -7,8 +6,7 @@ import { useNavigate } from "react-router";
 
 const ProductVariantTable = () => {
 
-    const axios = useAxiosInstance();
-    const [data, setData] = React.useState<ProductVariantType[] | null>(null);
+    const [data, _] = React.useState<ProductVariantType[] | null>(null);
 
     // React.useEffect(() => {
     //     const fetchData = async () => {

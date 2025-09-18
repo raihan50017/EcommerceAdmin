@@ -1,20 +1,17 @@
-import { GetHomePosts, HomePostType, SaveComment, SaveReaction } from "@/actions/home/home-action";
-import useAxiosInstance from "@/lib/axios-instance";
+import { HomePostType } from "@/actions/home/home-action";
 import React from "react";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
 const Home = () => {
-    const axios = useAxiosInstance();
-    const [data, setData] = React.useState<HomePostType[] | null>(null);
+    const [data, _] = React.useState<HomePostType[] | null>(null);
     const [commentInputs, setCommentInputs] = React.useState<Record<number, string>>({});
 
     React.useEffect(() => {
         const getData = async () => {
             try {
-                const res = await GetHomePosts(axios);
-                setData(res.Data);
+
             } catch (err) {
                 console.error(err);
             }
@@ -31,10 +28,7 @@ const Home = () => {
         if (!content) return;
 
         try {
-            await SaveComment({ content, post_id: postId }, axios);
 
-            const res = await GetHomePosts(axios);
-            setData(res.Data);
 
             setCommentInputs(prev => ({ ...prev, [postId]: "" }));
         } catch (err) {
@@ -42,15 +36,7 @@ const Home = () => {
         }
     };
 
-    const handleReaction = async (postId: number) => {
-        try {
-            await SaveReaction({ post_id: postId }, axios);
-            const res = await GetHomePosts(axios);
-            setData(res.Data);
-        } catch (err) {
-            console.error("Failed to reaction post", err);
-        }
-    };
+
 
 
 
@@ -81,7 +67,7 @@ const Home = () => {
                     <div className="flex items-center mt-4 text-sm text-gray-500 gap-3">
                         <button
                             className="flex items-center gap-1 hover:text-blue-600 transition"
-                            onClick={() => handleReaction(post.id)}
+
                         >
                             👍 {post.reactions?.length ?? 0} Likes
                         </button>

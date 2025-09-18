@@ -50,7 +50,7 @@ export default function BrandForm({
     pageAction: string;
 }) {
     // console.log("gauge: ", data);
-    const [Errors, setErrors] = React.useState<string[] | null>([]);
+    const [Errors, _] = React.useState<string[] | null>([]);
     const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
 

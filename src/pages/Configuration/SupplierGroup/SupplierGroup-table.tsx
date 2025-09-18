@@ -1,37 +1,14 @@
-import { ApiResponseType } from "@/actions/api-response-type";
-import { GetAllsupplierGroup, SupplierGroupType } from "@/actions/configuration/supplier-group-action";
-import useAxiosInstance from "@/lib/axios-instance";
+import { SupplierGroupType } from "@/actions/configuration/supplier-group-action";
 import { PageAction } from "@/utility/page-actions";
 import { Edit2 } from "lucide-react";
 import React from "react";
 import { useNavigate } from "react-router";
-import { toast } from "sonner";
 
 const SupplierGroupTable = () => {
-    const axios = useAxiosInstance();
-    const [data, setData] = React.useState<SupplierGroupType[] | null>(null);
+    const [data, _] = React.useState<SupplierGroupType[] | null>(null);
     React.useEffect(() => {
         const getData = async () => {
-            await GetAllsupplierGroup(axios)
-                .then((res: ApiResponseType<SupplierGroupType[]>) => {
-                    if (res.IsError) {
-                        toast("Message", {
-                            position: "top-center",
-                            description: (
-                                <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4 overflow-auto">
-                                    <code className="text-white text-sm">
-                                        {Array.isArray(res.Errors)
-                                            ? res.Errors.join("\n")
-                                            : "An error occurred."}
-                                    </code>
-                                </pre>
-                            ),
-                        })
-                    } else {
-                        setData(res.Data)
-                    }
-                })
-                .catch(err => console.log(err))
+
         }
         getData();
     }, [])

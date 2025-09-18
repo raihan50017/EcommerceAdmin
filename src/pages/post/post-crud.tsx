@@ -11,9 +11,9 @@ import PostForm from './post-form';
 
 export default function PostCRUD() {
     const axios = useAxiosInstance();
-    const [post, setPost] = React.useState<PostType | undefined>();
+    const [post, _] = React.useState<PostType | undefined>();
     const [isLoading, setIsLoading] = React.useState(false);
-    const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
+    const [errorMsg,] = React.useState<string | null>(null);
 
     const { pageAction, id } = useParams();
 
@@ -23,15 +23,8 @@ export default function PostCRUD() {
                 setIsLoading(true);
 
                 await GetPostById(axios, Number(id))
-                    .then((res) => {
-                        if (res.IsError) {
-                            console.log("Error found: ", res.Errors);
-                            setErrorMsg(JSON.stringify(res.Errors));
-                            setPost(undefined);
-                        } else {
-                            setPost(res.Data);
-                            console.log('post: ', res.Data);
-                        }
+                    .then(() => {
+
                     })
                     .catch((m) => console.log(m));
                 setIsLoading(false);

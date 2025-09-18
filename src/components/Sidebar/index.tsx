@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router";
-import SidebarLinkGroup from "./SidebarLinkGroup";
-import Logo from "../../images/logo/logo.svg";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -17,7 +15,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const sidebar = useRef<any>(null);
 
   const storedSidebarExpanded = localStorage.getItem("sidebar-expanded");
-  const [sidebarExpanded, setSidebarExpanded] = useState(
+  const [sidebarExpanded,] = useState(
     storedSidebarExpanded === null ? false : storedSidebarExpanded === "true"
   );
 

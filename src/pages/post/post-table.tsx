@@ -1,18 +1,14 @@
-import { GetMyPost, PostType } from "@/actions/post/post-action";
-import useAxiosInstance from "@/lib/axios-instance";
+import {  PostType } from "@/actions/post/post-action";
 import { PageAction } from "@/utility/page-actions";
 import { Edit2 } from "lucide-react";
 import React from "react";
 import { useNavigate } from "react-router";
 
 const PostTable = () => {
-    const axios = useAxiosInstance();
-    const [data, setData] = React.useState<PostType[] | null>(null);
+    const [data, _] = React.useState<PostType[] | null>(null);
     React.useEffect(() => {
         const getData = async () => {
-            await GetMyPost(axios)
-                .then(res => { setData(res.Data); })
-                .catch(err => console.log(err))
+
         }
         getData();
     }, [])
