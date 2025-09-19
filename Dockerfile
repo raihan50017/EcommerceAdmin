@@ -1,5 +1,5 @@
 # Base image for building
-FROM node:zlts-alpine AS builder
+FROM node:lts-alpine AS builder
 
 WORKDIR /app
 
