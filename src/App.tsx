@@ -11,8 +11,6 @@ import AuthProvider from "./lib/auth-provider";
 import PrivateRoute from "./components/PrivateRoute";
 import PostIndex from "./pages/post/post-index";
 import PostCRUD from "./pages/post/post-crud";
-import Home from "./pages/Home/Home";
-import GeneralLayout from "./layout/GeneralLayout";
 import CategoryIndex from "./pages/category/category-index";
 import CategoryCRUD from "./pages/category/category-crud";
 import BrandIndex from "./pages/brand/brand-index";
@@ -46,17 +44,7 @@ function App() {
       <Routes>
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/register" element={<SignUp />} />
-
-        <Route path="/" element={<GeneralLayout></GeneralLayout>}>
-          <Route index element={
-            <>
-              <PageTitle title="Home" />
-              <Home />
-            </>
-          }
-          />
-        </Route>
-        <Route path="/dashboard" element={<PrivateRoute />}>
+        <Route path="/" element={<PrivateRoute />}>
           <Route element={<DefaultLayout />}>
             <Route path="post">
               <Route

@@ -77,7 +77,7 @@ export default function ColorForm({
             queryClient.invalidateQueries({
                 queryKey: [ReactQueryKey.AccountVoucher],
             });
-            navigator("/dashboard/color");
+            navigator("/color");
         },
         onError: (err: AxiosError) => {
             console.log(err.response?.data);
@@ -260,7 +260,7 @@ export default function ColorForm({
                             type="reset"
                             disabled={mutation.isPending}
                             onClick={() =>
-                                navigator("/dashboard/size")
+                                navigator("/color")
                             }
                             variant={"outline"}
                             className={cn("w-24")}

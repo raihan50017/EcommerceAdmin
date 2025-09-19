@@ -76,7 +76,7 @@ export default function CategoryForm({
             queryClient.invalidateQueries({
                 queryKey: [ReactQueryKey.AccountVoucher],
             });
-            navigator("/dashboard/category");
+            navigator("/category");
         },
         onError: (err: AxiosError) => {
             console.log(err.response?.data);
@@ -242,7 +242,7 @@ export default function CategoryForm({
                             type="reset"
                             disabled={mutation.isPending}
                             onClick={() =>
-                                navigator("/dashboard/category")
+                                navigator("/category")
                             }
                             variant={"outline"}
                             className={cn("w-24")}

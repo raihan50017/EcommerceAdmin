@@ -156,7 +156,7 @@ export default function ProductVariantForm({
             queryClient.invalidateQueries({
                 queryKey: [ReactQueryKey.AccountVoucher],
             });
-            navigator("/dashboard/product-variant");
+            navigator("/product-variant");
         },
         onError: (err: AxiosError) => {
             console.log(err.response?.data);
@@ -622,7 +622,7 @@ export default function ProductVariantForm({
                             type="reset"
                             disabled={mutation.isPending}
                             onClick={() =>
-                                navigator("/dashboard/product-variant")
+                                navigator("/product-variant")
                             }
                             variant={"outline"}
                             className={cn("w-24")}

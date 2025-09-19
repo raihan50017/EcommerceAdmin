@@ -76,7 +76,7 @@ export default function SizeForm({
             queryClient.invalidateQueries({
                 queryKey: [ReactQueryKey.AccountVoucher],
             });
-            navigator("/dashboard/size");
+            navigator("/size");
         },
         onError: (err: AxiosError) => {
             console.log(err.response?.data);
@@ -242,7 +242,7 @@ export default function SizeForm({
                             type="reset"
                             disabled={mutation.isPending}
                             onClick={() =>
-                                navigator("/dashboard/size")
+                                navigator("/size")
                             }
                             variant={"outline"}
                             className={cn("w-24")}

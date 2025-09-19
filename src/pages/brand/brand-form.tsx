@@ -76,7 +76,7 @@ export default function BrandForm({
             queryClient.invalidateQueries({
                 queryKey: [ReactQueryKey.AccountVoucher],
             });
-            navigator("/dashboard/brand");
+            navigator("/brand");
         },
         onError: (err: AxiosError) => {
             console.log(err.response?.data);
@@ -242,7 +242,7 @@ export default function BrandForm({
                             type="reset"
                             disabled={mutation.isPending}
                             onClick={() =>
-                                navigator("/dashboard/category")
+                                navigator("/brand")
                             }
                             variant={"outline"}
                             className={cn("w-24")}
