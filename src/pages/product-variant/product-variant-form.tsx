@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
@@ -261,7 +262,7 @@ export default function ProductVariantForm({
         const sku = `${values.productName?.substring(0, 3).toUpperCase()}-${values.colorName?.substring(0, 3).toUpperCase()}-${values.sizeName}`;
 
         const newVariant: ProductVariantType = {
-            id: values.id || crypto.randomUUID(),
+            id: values.id || uuidv4(),
             productId: values.productId,
             productName: values.productName,
             colorId: values.colorId,
@@ -635,5 +636,7 @@ export default function ProductVariantForm({
         </AppPageContainer>
     );
 }
+
+
 
 
